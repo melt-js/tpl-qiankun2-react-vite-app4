@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <script>
+      const nativeGlobal = Function("return this")();
+      nativeGlobal.__QIANKUN_WINDOW__ = nativeGlobal.__QIANKUN_WINDOW__ || {};
+      nativeGlobal.__QIANKUN_WINDOW__["app4"] = nativeGlobal.proxy || nativeGlobal;
+    </script>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>qiankun React 子应用</title>  <script crossorigin="">
+      window["app4"] = {};
+      const lifecycleNames = ["bootstrap", "mount", "unmount", "update"];
+      import((__QIANKUN_WINDOW__["app4"].__INJECTED_PUBLIC_PATH_BY_QIANKUN__ || "").replace(/\.\/$/, "") + "./assets/index-Ce5RZTS6.js").then((lifecycleHooks) => {
+        lifecycleNames.forEach((lifecycleName) =>
+          window["app4"][lifecycleName].resolve(
+            lifecycleHooks[lifecycleName],
+          ),
+        );
+      });
+      lifecycleNames.forEach((lifecycleName) => {
+        let resolve;
+        const promise = new Promise((_resolve) => (resolve = _resolve));
+        window["app4"][lifecycleName] = Object.assign(
+          (...args) => promise.then((lifecycleHook) => lifecycleHook(...args)),
+          { resolve },
+        );
+      });
+    </script>
+</head>
+  <body><div id="app4"></div>
+
+</body></html>
